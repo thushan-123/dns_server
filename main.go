@@ -6,6 +6,10 @@ import (
 	"os"
 )
 
+func SendMessage(connection net.Conn, clientAddress net.UDPAddr) {
+
+}
+
 func main() {
 
 	// memory buffer
@@ -27,14 +31,21 @@ func main() {
 
 	defer connection.Close()
 
+	fmt.Println("Server Is Running on localhost port 1234")
+
 	for {
-		_, clientAdress, err := connection.ReadFromUDP(p)
+		i, clientAdress, err := connection.ReadFromUDP(p)
 
 		if err != nil {
 			fmt.Print("\nerror :", err)
 
 		}
-		s.WriteToUDP([]byte("hii"), clientAdress)
+
+		fmt.Printf("recived bytes %d  %s", i, clientAdress)
+
+		fmt.Printf("data: %s\n", string(p[:i])) // print  revived data
+
+		connection.WriteToUDP([]byte("hii"), clientAdress) // client respons befor send
 	}
 
 }
