@@ -1,5 +1,22 @@
 package question
 
+/*
+	ID - 16 bits
+	QR - 1 bit
+	OPCODE - 4 bit
+	AA - 1 bit
+	TC - 1 bit
+	RD - 1 bit
+	RA - 1 bit
+	Z  - 3 bit
+	RCODE - 4 bit
+	QDCOUNT - 16 bit
+	ANCOUNT - 16 bit
+	NSCOUNT - 16 bit
+	ARCOUNT - 16 bit
+
+*/
+
 type Question struct {
 	ID      byte
 	QR      byte
