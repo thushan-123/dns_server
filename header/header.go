@@ -18,17 +18,11 @@ package question
 */
 
 type Question struct {
-	ID      byte
-	QR      byte
-	OPCODE  byte
-	AA      byte
-	TC      byte
-	RD      byte
-	RA      byte
-	Z       byte
-	RCODE   byte
-	QDCOUNT byte
-	ANCOUNT byte
-	NSCOUNT byte
-	ARCOUNT byte
+	ID      uint16 // alls 16 bits
+	Falgs   uint16 //  QR- 1 | OPCODE- 4 | AA-1 |  TC -1 |  RD- 1 |  RA -1 |  Z- 3  | RCODE- 4
+	RCODE   uint16
+	QDCOUNT uint16
+	ANCOUNT uint16
+	NSCOUNT uint16
+	ARCOUNT uint16
 }
