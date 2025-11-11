@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
 )
 
 func main() {
@@ -17,14 +18,17 @@ func main() {
 		IP:   net.ParseIP("127.0.0.1"),
 	}
 
-	s, err := net.ListenUDP("udp", &addr)
+	connection, err := net.ListenUDP("udp", &addr)
 
 	if err != nil {
 		fmt.Print("error ", err)
+		os.Exit(1)
 	}
 
+	defer connection.Close()
+
 	for {
-		_, clientAdress, err := s.ReadFromUDP(p)
+		_, clientAdress, err := connection.ReadFromUDP(p)
 
 		if err != nil {
 			fmt.Print("\nerror :", err)
