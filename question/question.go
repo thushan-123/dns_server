@@ -6,10 +6,10 @@ package question
 	OPCODE - 4 bit
 	AA - 1 bit
 	TC - 1 bit
-	RD - 1 bit
-	RA - 1 bit
-	Z  - 3 bit
-	RCODE - 4 bit
+	RD - 1 bit					16		16         16        16       16        16				16
+	RA - 1 bit				|   ID   |         |   QDCOUNT  |   ANCOUNT     |   NSCOUNT     |  ARCOUNT     |
+	Z  - 3 bit						 /          \
+	RCODE - 4 bit			QR| OPCODE | AA | TC | RD | RA | Z|RCODE
 	QDCOUNT - 16 bit
 	ANCOUNT - 16 bit
 	NSCOUNT - 16 bit
