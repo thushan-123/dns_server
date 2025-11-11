@@ -17,7 +17,7 @@ package question
 
 */
 
-type Question struct {
+type DnsHeader struct {
 	ID      uint16 // alls 16 bits
 	Falgs   uint16 //  QR- 1 | OPCODE- 4 | AA-1 |  TC -1 |  RD- 1 |  RA -1 |  Z- 3  | RCODE- 4
 	RCODE   uint16
@@ -25,4 +25,8 @@ type Question struct {
 	ANCOUNT uint16
 	NSCOUNT uint16
 	ARCOUNT uint16
+}
+
+type DNSMessage struct {
+	dnsHeader DnsHeader // represent a complete DNS message
 }
