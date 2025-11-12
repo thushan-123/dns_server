@@ -1,5 +1,7 @@
 package question
 
+import "encoding/binary"
+
 /*
 	ID - 16 bits
 	QR - 1 bit
@@ -27,6 +29,17 @@ type DnsHeader struct {
 	ARCOUNT uint16
 }
 
-type DNSMessage struct {
-	dnsHeader DnsHeader // represent a complete DNS message
+type DNSMessage []byte
+
+func CreateHeader(dnsHeader DnsHeader) DNSMessage {
+	header := make([]byte, 12)
+
+	binary.BigEndian.PutUint16(header[0:2], dnsHeader.ID)
+	binary.BigEndian.PutUint16(header[2:4], dnsHeader.Falgs)
+	binary.BigEndian.PutUint16(header[4:6], dnsHeader.QDCOUNT)
+	binary.BigEndian.PutUint16(header[6:8], dnsHeader.ANCOUNT)
+	binary.BigEndian.PutUint16(header[8:10], dnsHeader.NSCOUNT)
+	binary.BigEndian.PutUint16(header[10:12], dnsHeader.ARCOUNT)
+
+	return header
 }
