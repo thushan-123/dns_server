@@ -40,12 +40,12 @@ func main() {
 			fmt.Print("\nerror :", err)
 
 		}
-
-		fmt.Printf("recived bytes %d  %s", i, clientAdress)
-
-		fmt.Printf("data: %s\n", string(p[:i])) // print  revived data
+		
+		fmt.Println(p[:i])
 
 		connection.WriteToUDP([]byte("hii"), clientAdress) // client respons befor send
 	}
 
 }
+
+// dig @127.0.0.1 -p 1234 test.com A
