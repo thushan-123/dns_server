@@ -7,3 +7,9 @@ type DNSRecord struct {
 	TTL   uint32
 	Data  string
 }
+
+
+// dns class
+const (
+	ClassIN = 1
+)
