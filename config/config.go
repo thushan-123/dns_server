@@ -1,5 +1,7 @@
 package config
 
+import "net"
+
 // dns record type
 
 const (
@@ -24,3 +26,17 @@ type DNSRecord struct {
 const (
 	ClassIN = 1
 )
+
+type DNSConfig struct {
+	Port int
+	Forwarders [] string
+	CacheTTL int
+	RecordsFile string
+}
+
+type DNSServer struct{
+	Config DNSConfig
+	Records DNSRecord
+	Listner net.PacketConn
+
+}
