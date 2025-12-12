@@ -2,22 +2,6 @@ package question
 
 import "encoding/binary"
 
-/*
-	ID - 16 bits
-	QR - 1 bit
-	OPCODE - 4 bit
-	AA - 1 bit
-	TC - 1 bit
-	RD - 1 bit					16		16         16        16       16        16				16
-	RA - 1 bit				|   ID   |         |   QDCOUNT  |   ANCOUNT     |   NSCOUNT     |  ARCOUNT     |
-	Z  - 3 bit						 /          \
-	RCODE - 4 bit			QR| OPCODE | AA | TC | RD | RA | Z|RCODE
-	QDCOUNT - 16 bit
-	ANCOUNT - 16 bit
-	NSCOUNT - 16 bit
-	ARCOUNT - 16 bit
-
-*/
 
 type DnsHeader struct {
 	ID      uint16 // alls 16 bits
@@ -43,3 +27,22 @@ func CreateHeader(dnsHeader DnsHeader) DNSMessage {
 
 	return header
 }
+
+
+
+/*
+	ID - 16 bits
+	QR - 1 bit
+	OPCODE - 4 bit
+	AA - 1 bit
+	TC - 1 bit
+	RD - 1 bit					16		16         16        16       16        16				16
+	RA - 1 bit				|   ID   |         |   QDCOUNT  |   ANCOUNT     |   NSCOUNT     |  ARCOUNT     |
+	Z  - 3 bit						 /          \
+	RCODE - 4 bit			QR| OPCODE | AA | TC | RD | RA | Z|RCODE
+	QDCOUNT - 16 bit
+	ANCOUNT - 16 bit
+	NSCOUNT - 16 bit
+	ARCOUNT - 16 bit
+
+*/
